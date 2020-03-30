@@ -64,18 +64,18 @@ Votre container est du coup upload dans la registry locale.
 
 Si on prend en compte que vous avez déjà un projet dans la GCP, vous pouvez accédez au service Cloud Run via la barre de recherche de la console Google Cloud Platform
 
-![Find Cloud Run](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Go%20to%20Cloud%20Run.png)
+![Find Cloud Run](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/GotoCloudRun.png)
 
 Il faut ensuite activé le service Cloud Run: 
 
-![Activate Cloud Run](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Activate%20Service.png)
+![Activate Cloud Run](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunActivateService.png)
 
 
-![Cloud Run Service](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Service.png)
+![Cloud Run Service](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunService.png)
 
 Vous allez ensuite devoir activer Api Registry:
 
-![Cloud Run Registry](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Activate%20Registry.png)
+![Cloud Run Registry](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunActivateRegistry.png)
 
 
 Et enfin pour terminer, il faut installer le Google Cloud SDK en suivant la documentation suivante [Google Cloud SDK](https://cloud.google.com/sdk/docs), puis configurer [gcloud comme Docker credential helper](https://cloud.google.com/container-registry/docs/advanced-authentication#gcloud-helper)
@@ -109,9 +109,9 @@ mvn jib:build
 ```
 vous devriez build et push votre image sur la registry GCloud.
 
-![Cloud Run Registry Container](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Registry%20Container.png)
+![Cloud Run Registry Container](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunRegistryContainer.png)
 
-![Cloud Run Registry Container Version](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Registry%20Container%20Version.png)
+![Cloud Run Registry Container Version](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunRegistryContainerVersion.png)
 
 
 
