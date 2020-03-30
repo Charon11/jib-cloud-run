@@ -21,15 +21,15 @@ On se place ici dans le contexte d'une application Spring Boot générée depuis
 Commençons par la configuration Maven pour le plugin Jib
 
 ```xml
- <plugin>
-    <groupId>com.google.cloud.tools</groupId>
+<plugin>
+	<groupId>com.google.cloud.tools</groupId>
 	<artifactId>jib-maven-plugin</artifactId>
 	<version>2.1.0</version>
 	<configuration>
-	    <to>    				
-            	<image>charon11/jib-demo</image>
-	     	<tags>${project.version}</tags>
-	    </to>
+		<to>
+			<image>charon11/jib-demo</image>
+			<tags>${project.version}</tags>
+		</to>
 	</configuration>
 </plugin>
 ```
@@ -86,16 +86,16 @@ Une fois que tout est installé et configuré, on est up and ready pour utiliser
 Nous allons commencer par faire une petite modification dans la configuration de Jib :
 
 ```xml
- <plugin>
-    <groupId>com.google.cloud.tools</groupId>
+<plugin>
+	<groupId>com.google.cloud.tools</groupId>
 	<artifactId>jib-maven-plugin</artifactId>
 	<version>2.1.0</version>
 	<configuration>
-	    <to>    				
-            	<image>gcr.io/cloud-run-jib/jib-demo</image>
-		<credHelper>gcloud</credHelper>
-		<tags>${project.version}</tags>
-	    </to>
+		<to>
+			<image>gcr.io/cloud-run-jib/jib-demo</image>
+			<credHelper>gcloud</credHelper>
+			<tags>${project.version}</tags>
+		</to>
 	</configuration>
 </plugin>
 ```
