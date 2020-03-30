@@ -27,9 +27,9 @@ Commençons par la configuration Maven pour le plugin Jib
 	<version>2.1.0</version>
 	<configuration>
 	    <to>    				
-            <image>charon11/jib-demo</image>
-			<tags>${project.version}</tags>
-		</to>
+            	<image>charon11/jib-demo</image>
+	     	<tags>${project.version}</tags>
+	    </to>
 	</configuration>
 </plugin>
 ```
@@ -92,10 +92,10 @@ Nous allons commencer par faire une petite modification dans la configuration de
 	<version>2.1.0</version>
 	<configuration>
 	    <to>    				
-            <image>gcr.io/cloud-run-jib/jib-demo</image>
-			<credHelper>gcloud</credHelper>
-			<tags>${project.version}</tags>
-		</to>
+            	<image>gcr.io/cloud-run-jib/jib-demo</image>
+		<credHelper>gcloud</credHelper>
+		<tags>${project.version}</tags>
+	    </to>
 	</configuration>
 </plugin>
 ```
