@@ -22,15 +22,15 @@ Commençons par la configuration Maven pour le plugin Jib
 
 ```xml
 <plugin>
-	<groupId>com.google.cloud.tools</groupId>
-	<artifactId>jib-maven-plugin</artifactId>
-	<version>2.1.0</version>
-	<configuration>
-		<to>
-			<image>charon11/jib-demo</image>
-			<tags>${project.version}</tags>
-		</to>
-	</configuration>
+    <groupId>com.google.cloud.tools</groupId>
+    <artifactId>jib-maven-plugin</artifactId>
+    <version>2.1.0</version>
+    <configuration>
+        <to>
+            <image>charon11/jib-demo</image>
+            <tags>${project.version}</tags>
+        </to>
+    </configuration>
 </plugin>
 ```
 
@@ -87,16 +87,16 @@ Nous allons commencer par faire une petite modification dans la configuration de
 
 ```xml
 <plugin>
-	<groupId>com.google.cloud.tools</groupId>
-	<artifactId>jib-maven-plugin</artifactId>
-	<version>2.1.0</version>
-	<configuration>
-		<to>
-			<image>gcr.io/cloud-run-jib/jib-demo</image>
-			<credHelper>gcloud</credHelper>
-			<tags>${project.version}</tags>
-		</to>
-	</configuration>
+    <groupId>com.google.cloud.tools</groupId>
+    <artifactId>jib-maven-plugin</artifactId>
+    <version>2.1.0</version>
+    <configuration>
+        <to>
+            <image>gcr.io/cloud-run-jib/jib-demo</image>
+            <credHelper>gcloud</credHelper>
+            <tags>${project.version}</tags>
+        </to>
+    </configuration>
 </plugin>
 ```
 
