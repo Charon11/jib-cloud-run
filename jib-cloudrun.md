@@ -114,11 +114,24 @@ vous devriez build et push votre image sur la registry GCloud.
 ![Cloud Run Registry Container Version](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunRegistryContainerVersion.png)
 
 
+Une fois que notre container est dans le registry, il est temps de le faire tourner dans Cloud Run, pour cela retournez dans le service Cloud Run et clickez sur Créer un service
+![Cloud Run Service](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunService.png) 
+
+
+Choisissez votre région, le nom de votre service et autoriser les appels non authentifiés:
+![Cloud Run Create Service](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunCreateService.png) 
+
+
+Selectionnez ensuite votre container précédemment uploadé et clickez sur Créer
+![Cloud Run Create Service Container](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunCreateServiceContainer.png) 
+
+Une fois le service créé, vous avez une url disponible pour y accéder 
+![Cloud Run Create Service Created](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunCreateServiceCreated.png) 
+
+Et voila, vous avez votre container qui tourne sur le Cloud:
+
+![Cloud Run Service Started](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/CloudRunStarted.png) 
 
 
 
-
-
-
-Et enfin il va falloir activer Cloud Build
 
