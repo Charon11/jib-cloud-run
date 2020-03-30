@@ -24,10 +24,11 @@ Commençons par la configuration Maven pour le plugin Jib
  <plugin>
     <groupId>com.google.cloud.tools</groupId>
 	<artifactId>jib-maven-plugin</artifactId>
-	<version>1.8.0</version>
+	<version>2.1.0</version>
 	<configuration>
 	    <to>    				
             <image>charon11/jib-demo</image>
+			<tags>${project.version}</tags>
 		</to>
 	</configuration>
 </plugin>
@@ -59,6 +60,65 @@ Votre container est du coup upload dans la registry locale.
  ### Re késako ?
  Cloud Run est une plate-forme de service totalement managé de Google permétant de déployer et d'exécuter des containers stateless. Le but de cette plateforme est de profiter des avantages des containers mais sans les potentielles difficultés du management d'une plateforme d'orchestration de container. Autre avantage, la facturation ne se fait que lorsque le container est en activité. On peut assimiler Cloud Run à une Cloud Function mais avec un container. 
 
-### Let's us it
+### Let's use it
 
-Si on prend en compte que vous avez déjà un projet dans la GCP, vous pouvez accédez au service Cloud Run vial la barre de recherche de la console Google Cloud Platform
+Si on prend en compte que vous avez déjà un projet dans la GCP, vous pouvez accédez au service Cloud Run via la barre de recherche de la console Google Cloud Platform
+
+![Find Cloud Run](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Go%20to%20Cloud%20Run.png)
+
+Il faut ensuite activé le service Cloud Run: 
+
+![Activate Cloud Run](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Activate%20Service.png)
+
+
+![Cloud Run Service](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Service.png)
+
+Vous allez ensuite devoir activer Api Registry:
+
+![Cloud Run Registry](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Activate%20Registry.png)
+
+
+Et enfin pour terminer, il faut installer le Google Cloud SDK en suivant la documentation suivante [Google Cloud SDK](https://cloud.google.com/sdk/docs), puis configurer [gcloud comme Docker credential helper](https://cloud.google.com/container-registry/docs/advanced-authentication#gcloud-helper)
+
+
+Une fois que tout est installé et configuré, on est up and ready pour utiliser Cloud Run
+
+Nous allons commencer par faire une petite modification dans la configuration de Jib :
+
+```xml
+ <plugin>
+    <groupId>com.google.cloud.tools</groupId>
+	<artifactId>jib-maven-plugin</artifactId>
+	<version>2.1.0</version>
+	<configuration>
+	    <to>    				
+            <image>gcr.io/cloud-run-jib/jib-demo</image>
+			<credHelper>gcloud</credHelper>
+			<tags>${project.version}</tags>
+		</to>
+	</configuration>
+</plugin>
+```
+
+Maintenant si vous relancez la commande
+```bash
+mvn jib:build
+...
+[INFO] Built and pushed image as gcr.io/cloud-run-jib/jib-demo, gcr.io/cloud-run-jib/jib-demo:0.0.1-SNAPSHOT
+...
+```
+vous devriez build et push votre image sur la registry GCloud.
+
+![Cloud Run Registry Container](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Registry%20Container.png)
+
+![Cloud Run Registry Container Version](https://raw.githubusercontent.com/Charon11/jib-cloud-run/master/resources/Cloud%20Run%20Registry%20Container%20Version.png)
+
+
+
+
+
+
+
+
+Et enfin il va falloir activer Cloud Build
+
